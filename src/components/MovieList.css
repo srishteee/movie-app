@@ -1,0 +1,13 @@
+/* src/components/MovieList.css */
+
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .movie-list.loading {
+    opacity: 0.7;
+  }
+  
