@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import { fetchMovies, fetchGenres } from './services/movieService';
 import MovieList from './components/MovieList';
@@ -130,13 +128,24 @@ function App() {
 
   return (
     <div className="app">
-     <input
+      <div className='navigation-bar'>
+        <div style={{fontWeight:"bolder", padding:"10px", marginLeft:"20px", marginTop:"5px"}}>
+        Movie List App
+        </div>
+        <div>
+        <input
         type="text"
         placeholder="Search for movies..."
         onChange={(e) => handleSearch(e.target.value)}
       />
+        </div>
+      </div>
+      <div style={{paddingTop:"40px"}}>
       <GenreFilter genres={genres} selectedGenres={selectedGenres} onGenreChange={handleGenreChange} />
-      <MovieList movies={movies} />
+      </div>
+     <div>
+     <MovieList movies={movies} />
+     </div>
       {loading && <p>Loading...</p>}
       {reachedEnd && !loading && movies.length > 0 && <p>No more movies</p>}
       {reachedEnd && !loading && movies.length === 0 && <p>No movies available</p>}
